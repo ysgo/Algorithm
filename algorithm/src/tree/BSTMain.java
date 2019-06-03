@@ -24,26 +24,27 @@ class BinarySerachTree {
 	}
 
 	public void add(int val) {
-		//(1)¹ø ±¸Çö
+		//(1)ë²ˆ êµ¬í˜„
 	}
 
 	public Boolean search(int val) {
-		//(2)¹ø ±¸Çö
+		//(2)ë²ˆ êµ¬í˜„
 		return true;
 	}
 
 	public Boolean remove(int val) {
-		//(4)¹ø ±¸Çö
+
+		//(4)ë²ˆ êµ¬í˜„
 		return true;
 	}
 
 	private int getkMinVal() {
-		//(3)¹ø ±¸Çö
+		//(3)ë²ˆ êµ¬í˜„
 		return 0;
 	}
 
 	private int getkMaxVal() {
-		//(3)¹ø ±¸Çö
+		//(3)ë²ˆ êµ¬í˜„
 		return 0;
 	}
 
@@ -62,19 +63,19 @@ class BinarySerachTree {
 	}
 
 	private void printInOrder(Node current) {
-		//(5)¹ø ±¸Çö
+		//(5)ë²ˆ êµ¬í˜„
 	}
 
 	private void printPreOrder(Node current) {
-		//(5)¹ø ±¸Çö
+		//(5)ë²ˆ êµ¬í˜„
 	}
 
 	private void printPostOrder(Node current) {
-		//(5)¹ø ±¸Çö
+		//(5)ë²ˆ êµ¬í˜„
 	}
 
 	private void printLevelOrder(Node current) {
-		//(5)¹ø ±¸Çö
+		//(5)ë²ˆ êµ¬í˜„
 	}
 }
 
