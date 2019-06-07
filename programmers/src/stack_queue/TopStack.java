@@ -1,4 +1,4 @@
-package programmers;
+package stack_queue;
 
 import java.util.ArrayList;
 
