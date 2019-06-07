@@ -13,12 +13,42 @@ a	b	result
  */
 
 public class Year2016 {
-
+	public static void main(String[] args) {
+		SolutionYear2016 su = new SolutionYear2016();
+		System.out.println(su.solution(5, 24));
+	}
 }
 class SolutionYear2016 {
 	public String solution(int a, int b) {
 		String answer = "";
-		
+		int[] date = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};	// 요일계산시 문제이 시작 요일이 주어짐(hint)
+		int oper=0;					// 윤년계산 조건은 4로 나누고, 100으로 나누고, 400으로 나누고...(나머지로 파악)
+		for(int i=0; i<a-1; i++)
+			oper += date[i];
+		oper += (b-1);
+		switch(oper % 7) {
+		case 0:
+			answer = "FRI";
+			break;
+		case 1:
+			answer = "SAT";
+			break;
+		case 2:
+			answer = "SUN";
+			break;
+		case 3:
+			answer = "MON";
+			break;
+		case 4:
+			answer = "TUE";
+			break;
+		case 5:
+			answer = "WED";
+			break;
+		case 6:
+			answer = "THU";
+			break;
+		}
 		return answer;
 	}
 }
