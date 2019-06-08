@@ -19,8 +19,8 @@ arr				answer
 [4,4,4,3,3]		[4,3] */
 class SolutionHateSameNumber {
 	public int[] solution(int []arr) {
-        int[] answer;
-        ArrayList<Integer> al = new ArrayList<>();
+        int[] answer;						
+        ArrayList<Integer> al = new ArrayList<>();	// 다음값과 비교만이 아닌, 이전값을 저장하여 비교해서 list에 저장
         for(int i=0; i<arr.length-1; i++) {
         	if(arr[i] == arr[i+1]) {
         		if(i==arr.length-2) {
