@@ -1,4 +1,6 @@
 package sort;
+// 미해결 
+import java.util.HashMap;
 
 /*
 0 또는 양의 정수가 주어졌을 때, 정수를 이어 붙여 만들 수 있는 가장 큰 수를 알아내 주세요.
@@ -11,15 +13,40 @@ numbers의 길이는 1 이상 100,000 이하입니다.
 numbers의 원소는 0 이상 1,000 이하입니다.
 정답이 너무 클 수 있으니 문자열로 바꾸어 return 합니다.
 입출력 예
-numbers	return
-[6, 10, 2]	6210
-[3, 30, 34, 5, 9]  */
+numbers				return
+[6, 10, 2]			6210
+[3, 30, 34, 5, 9]  	9534330	*/
 public class SortMaximumNum {
-
+	public static void main(String[] args) {
+		SolutionSortMaximumNum su = new SolutionSortMaximumNum();
+		int[] numbers = {6, 10, 2};
+//		int[] numbers = {3, 30, 34, 5, 9};
+		System.out.println(su.solution(numbers));
+	}
 }
 class SolutionSortMaximumNum {
     public String solution(int[] numbers) {
         String answer = "";
+        HashMap<Integer, Integer> hs = new HashMap<>();
+        int[] array = new int[numbers.length];
+		for(int i=0; i<numbers.length; i++) {
+			array[i] = numbers[i] % 10;
+			hs.put(array[i], numbers[i]);
+		}
+		for(int i=0; i<numbers.length-1; i++) {
+			for(int j=i+1; j<numbers.length; j++) {
+				if(array[i] < array[j]) {
+					int tmp = array[i];
+					array[i] = array[j];
+					array[j] = tmp;
+				}
+			}
+		}
+		for(int i=0; i<numbers.length; i++) {
+			numbers[i] = hs.get(array[i]);
+		}
+		for(int data : numbers)
+			answer += data;
         return answer;
     }
 }
