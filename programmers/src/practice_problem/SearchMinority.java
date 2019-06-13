@@ -25,32 +25,31 @@ class SolutionSearchMinority {
 //			if(bl == true)
 //				answer++;
 //		}					// 정확성 2개 시간 초과, 효율성 제로
-		ArrayList<Integer> ar = new ArrayList<Integer>();
-		ar.add(2);
-		for(int i=2; i<=n; i++) {
-			for(int j=0;ar.size()>j; j++) {
-				if(i%ar.get(j)==0) break;		//소수가 아닌 경우
-				if(j+1 == ar.size()) ar.add(i);	//소수일때
-			}
-		}
-		answer = ar.size();			// 정확성 통과, 효율성 제로
-//		// 에라토스테네스의 체 공식
-//		int[] number = new int[n+1];
-//		//2부터 n까지의 수 배열에 삽입
-//		for(int i=2; i<=n; i++)
-//			number[i] = i;
-//		//2부터 시작해 배수들을 0으로 전환
-//		//이후에 0이면 넘어가고 아니면 그 배수들을 다시 0으로 만듬
+//		ArrayList<Integer> ar = new ArrayList<Integer>();
+//		ar.add(2);
 //		for(int i=2; i<=n; i++) {
-//			if(number[i] == 0) continue;
-//			for(int j=2*i; j<=n; j+=i)
-//				number[i] = 0;
+//			for(int j=0;ar.size()>j; j++) {
+//				if(i%ar.get(j)==0) break;		//소수가 아닌 경우
+//				if(j+1 == ar.size()) ar.add(i);	//소수일때
+//			}
 //		}
-//		//배열에서 0이 아닌 수 카운트
-//		for(int i=0; i<number.length; i++) {
-//			if(number[i]!=0) answer++;
-//		}							// 통
-		
+//		answer = ar.size();			// 정확성 통과, 효율성 제로
+		// 에라토스테네스의 체 공식
+		int[] number = new int[n+1];
+		//2부터 n까지의 수 배열에 삽입
+		for(int i=2; i<=n; i++)
+			number[i] = i;
+		//2부터 시작해 배수들을 0으로 전환
+		//이후에 0이면 넘어가고 아니면 그 배수들을 다시 0으로 만듬
+		for(int i=2; i<=n; i++) {
+			if(number[i] == 0) continue;
+			for(int j=2*i; j<=n; j+=i)
+				number[j] = 0;
+		}
+		//배열에서 0이 아닌 수 카운트
+		for(int i=0; i<number.length; i++) {
+			if(number[i]!=0) answer++;
+		}							// 통과 
 		return answer;
 	}
 }
