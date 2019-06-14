@@ -5,19 +5,19 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-class Node {
-	Node left;
-	Node right;
+class BSTNode {
+	BSTNode left;
+	BSTNode right;
 	int val;
 
-	Node(int val) {
+	BSTNode(int val) {
 		left = right = null;
 		this.val = val;
 	}
 }
 
 class BinarySerachTree {
-	private Node root;
+	private BSTNode root;
 
 	public BinarySerachTree() {
 		root = null;
@@ -25,11 +25,26 @@ class BinarySerachTree {
 
 	public void add(int val) {
 		//(1)번 구현
+		if(root == null)
+			root = new BSTNode(val);
+		
 	}
 
 	public Boolean search(int val) {
 		//(2)번 구현
-		return true;
+		while(true) {
+			if(root == null)
+				return false;
+			else {
+				if(val == root.val) {
+					return true;
+				} else if(val < root.val) {
+					root = root.left;
+				} else {
+					root = root.right;
+				}
+			}
+		}
 	}
 
 	public Boolean remove(int val) {
@@ -40,11 +55,13 @@ class BinarySerachTree {
 
 	private int getkMinVal() {
 		//(3)번 구현
+		
 		return 0;
 	}
 
 	private int getkMaxVal() {
 		//(3)번 구현
+		
 		return 0;
 	}
 
@@ -62,19 +79,19 @@ class BinarySerachTree {
 		printLevelOrder(this.root);
 	}
 
-	private void printInOrder(Node current) {
+	private void printInOrder(BSTNode current) {
 		//(5)번 구현
 	}
 
-	private void printPreOrder(Node current) {
+	private void printPreOrder(BSTNode current) {
 		//(5)번 구현
 	}
 
-	private void printPostOrder(Node current) {
+	private void printPostOrder(BSTNode current) {
 		//(5)번 구현
 	}
 
-	private void printLevelOrder(Node current) {
+	private void printLevelOrder(BSTNode current) {
 		//(5)번 구현
 	}
 }
