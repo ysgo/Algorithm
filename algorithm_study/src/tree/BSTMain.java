@@ -229,7 +229,7 @@ class BinarySerachTree {
 				q.add(delete.right);
 			}
 		}
-		System.out.println(list);		// 레벨 구간마다 큰괄호 주는 것이 안됨....
+		System.out.println(list);		// 레벨 구간마다 큰괄호 주는 것이 필수는 아니지만 구현이 안됨...
 	}
 }
 
