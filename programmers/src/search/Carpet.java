@@ -36,7 +36,7 @@ class SolutionCarpet {
     public int[] solution(int brown, int red) {
         int[] answer = new int[2];
         int sum = brown + red;
-        end:for(int i=3; i<=brown; i++) {
+        end:for(int i=3; i<=sum; i++) {
         	if(sum % i == 0) {
 	        	for(int j=1; j<=i; j++) {
 	        		if(i >= j) {
