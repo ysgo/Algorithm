@@ -1,4 +1,5 @@
-package search;
+package bruteforce;
+
 /*Leo는 카펫을 사러 갔다가 아래 그림과 같이 중앙에는 빨간색으로 칠해져 있고
  *  모서리는 갈색으로 칠해져 있는 격자 모양 카펫을 봤습니다.
 
@@ -28,34 +29,45 @@ public class Carpet {
 //		int red = 1;
 		int brown = 24;
 		int red = 24;
-		for(int answer : su.solution(brown, red))
+		for (int answer : su.solution(brown, red))
 			System.out.println(answer);
 	}
 }
+
 class SolutionCarpet {
-    public int[] solution(int brown, int red) {
-        int[] answer = new int[2];
-        int sum = brown + red;
-        end:for(int i=3; i<=sum; i++) {
-        	if(sum % i == 0) {
-	        	for(int j=1; j<=i; j++) {
-	        		if(i >= j) {
-	        			if(i*j == sum) {
-	        				answer[0] = i;
-	        				answer[1] = j;
-	        				break end;
-	        				}
-	        			}
-	        		}
-        	}
-        }
-        /*
-         * int x = sum / y;
-            if ((x - 2) * (y - 2) == red) {
-                result[0] = x;
-                result[1] = y;
-                break;
-         */
-        return answer;
-    }
+	public int[] solution(int brown, int red) {
+		int[] answer = new int[2];
+//		int sum = brown + red;		// 반복횟수는 합보다는 red길이로만 해도 충분할듯하
+		int x = (brown - 2) / 2;	// 가로 길이 추출
+		int rFirst = x - 2;			// 중복되는 brown개수에 따른 red개수의 가장 작은 값 
+		for (int y = 3, i = 0; y <= red; x--,y++,i++) { // 세로길이는 최소 3부터 시작
+			if ((rFirst - i) * (i + 1) == red) {
+				answer[0] = x;
+				answer[1] = y;
+				break;
+			}
+		}
+		return answer;
+	}
+//  다른 풀이1
+// for(int i=1; i<=red; i++) {
+//     if(red%i==0 && (red/i+i)*2+4==brown) {
+//         return new int[] {red/i+2, i+2};
+//     }
+// }
+// return null;
+ /* 풀이2
+  * int iAllNum = brown + red;
+     int iHeight = 0;
+
+     for (int iBrownWidth = 1; iBrownWidth < brown; iBrownWidth++) {
+         iHeight = iAllNum/iBrownWidth;
+
+         if((iBrownWidth-2)*(iHeight-2) == red) {
+             answer[0] = iBrownWidth;
+             answer[1] = iHeight;
+         }
+     }
+     return answer;
+     */
 }
