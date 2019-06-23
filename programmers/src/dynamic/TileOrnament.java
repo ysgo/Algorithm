@@ -25,10 +25,10 @@ public class TileOrnament {
 		SolutionTileOrnament su = new SolutionTileOrnament();
 //		int N = 3;	// 10
 //		int N = 4;	// 16
-//		int N = 5;	// 26
+		int N = 5;	// 26
 //		int N = 6;	// 42
 //		int N = 7;	// 68
-		int N = 8; // 110
+//		int N = 8; // 110
 		System.out.println(su.solution(N));
 	}
 }
@@ -36,7 +36,9 @@ public class TileOrnament {
 class SolutionTileOrnament {
 	public long solution(int N) {
 		long answer = 3;		// N이 3일때의 가로+세로, 즉 두 길이의 합 
-		long preNum = 2;		// N이 2일때의 두 길이의 합 
+		long preNum = 2;		// N이 2일때의 두 길이의 합
+		long[] arr = new long[N];
+		arr[0] = 1; arr[1] = 1;
 		if (N == 1) {			// N이 1이면 둘레가 4
 			return 4;
 		} else if (N == 2) {	// N이 2이면 둘레가 6 
@@ -44,10 +46,16 @@ class SolutionTileOrnament {
 		} else {
 			for (int i = 2; i < N; i++) {	// 입력받은 N 길이만큼 반복
 				long tmp = answer;			// 이전의 가로+세로의 합을 따로 저장 
-				answer = answer + preNum;		// 현재와 이전의 가로+세로를 합하여 저장 
-				preNum = tmp;					// 
-			}
+				answer = answer + preNum;	// 현재와 이전의 가로+세로를 합하여 저장 
+				preNum = tmp;				// 이전의 합의 값을 현재의 합으로 저장 
+			}								// 정확성, 효율성 통과 
+//			for(int i=2; i<N; i++) {
+//				arr[i] = arr[i-1] + arr[i-2];
+//				System.out.println(arr[i]);
+//			}
+//			answer = (arr[N-1] + arr[N-2]) + (arr[N-2] + arr[N-3]);		// 정확성 통과, 효율성 미통과
+																		// long[]로 하니 효율성 통과 
 		}
-		return answer * 2;
+		return answer * 2;		// 둘레의 길이를 구하기에 가로+세로에 x2를 해줌 
 	}
 }

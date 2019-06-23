@@ -3,8 +3,10 @@
 # Edit at https://www.gitignore.io/?templates=java,eclipse
 
 ### Exclude Folder ###
+algorithm_solution/
+javaexam/
+jdbcexam/
 Servers/
-edu/
 
 ### Eclipse ###
 .metadata

@@ -30,9 +30,9 @@ public class Network {
 class SolutionNetwork {
 	static void dfs(int n, int[][] computers, int i, boolean[][] check) {
 		for(int j=0; j<computers[i].length; j++) {
-			if(computers[i][j] == 1 && check[i][j] == false) {		// pc의 연결을 수행할 수 있는지 여부 
-				check[i][j] = true;				// 현재 pc와 네트워크 연결을 수행했기에 true로 변경 
-				dfs(n, computers, j, check);	// pc와 연결할 수 있는 모든 pc들을 조사 
+			if(computers[i][j] == 1 && check[i][j] == false) {	// pc의 연결을 수행할 수 있는지 여부 
+				check[i][j] = true;								// 현재 pc와 네트워크 연결을 수행했기에 true로 변경 
+				dfs(n, computers, j, check);					// pc와 연결할 수 있는 모든 pc들을 조사 
 			}
 		}		
 	}
@@ -40,9 +40,9 @@ class SolutionNetwork {
         int answer = 0;
         boolean[][] check = new boolean[computers.length][computers[0].length];	// 연결여부를 true로 표현하기 위함 
         for(int i=0; i<computers.length; i++) {
-        	if(check[i][i] == false) {			// 네트워크 연결이 되었는지 확인. false는 아직 미연결이라는 뜻
+        	if(check[i][i] == false) {							// 네트워크 연결이 되었는지 확인. false는 아직 미연결이라는 뜻
 	        	dfs(n, computers, i, check);
-	        	answer++;						// pc 네트워크 연결을 수행한 횟수 
+	        	answer++;										// pc 네트워크 연결을 수행한 횟수 
         	}
         }
         return answer;

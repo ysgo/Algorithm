@@ -41,7 +41,7 @@ class SolutionStockPrice {
         	}
         	list.add(count);			// 쓸 필요 없이 바로 int[]에 넣어도 됨
         	count=0;					// 각 초에 대한 카운트 초기화
-        }					// LinkedList 효율성 : 평균 29~30ms
+        }								// LinkedList 효율성 : 평균 29~30ms
         for(int i=0; i<answer.length; i++) {
         	answer[i] = list.get(i);
         }
