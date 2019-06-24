@@ -1,6 +1,4 @@
 package bruteforce;
-
-
 /*
  수포자는 수학을 포기한 사람의 준말입니다. 수포자 삼인방은 모의고사에 수학 문제를 전부 찍으려 합니다. 수포자는 1번 문제부터 마지막 문제까지 다음과 같이 찍습니다.
 
@@ -25,52 +23,7 @@ public class MockTest {
 		int[] firstPerson = new int[answer.length*2];
 		int[] secondPerson = new int[answer.length*2];
 		int[] thirdPerson = new int[answer.length*2];
-
-		for(int i=0, j=1; i<firstPerson.length; i++) {
-			firstPerson[i] = j++;
-			if(firstPerson[i] == 5) {
-				j = 1;
-			}
-		}
-		for(int i=0, j=1; i<secondPerson.length; i++) {
-			if(i % 2 == 0) {
-				secondPerson[i] = 2;				
-			} else {
-				if(j != 2)
-					secondPerson[i] = j++;
-				else
-					secondPerson[i] = j+1;
-				if(j == 6)
-					j=1;
-			}
-		}
-//		for(int i=0; i<thirdPerson.length; i++) {
-//			
-//		}
 		
-		for(int data : secondPerson)
-			System.out.println(data);
-	}
-	
-	static int check(int[] firstPerson, int[] secondPerson, int[] thirdPerson) {
-		int result=0;
-		int n1=0, n2=0, n3=0;
-		for(int i=0; i<firstPerson.length; i++) {
-			if(firstPerson[i] == answer[i]) {
-				n1++;
-			}
-		}
-		for(int i=0; i<secondPerson.length; i++) {
-			if(secondPerson[i] == answer[i]) {
-				n2++;
-			}
-		}
-		for(int i=0; i<thirdPerson.length; i++) {
-			if(thirdPerson[i] == answer[i]) {
-				n3++;
-			}
-		}
-		return result;
 	}
 }
 class SolutionMockTest {
