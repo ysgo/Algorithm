@@ -1,6 +1,7 @@
 package hash;
 // 미해결 
 import java.util.HashMap;
+import java.util.Iterator;
 
 /* 프로그래머스 해쉬문
  * 스파이들은 매일 다른 옷을 조합하여 입어 자신을 위장합니다.
@@ -46,20 +47,10 @@ face에 해당하는 의상이 crow_mask, blue_sunglasses, smoky_makeup이므로
 3. smoky_makeup
 
  */
-class Camouflage_Solution {
+class SolutionCamouflage {
     public int solution(String[][] clothes) {
-        int answer = 0;
-        
-        return answer;
-    }
-}
-public class Camouflage {
-	public static void main(String[] args) {
-		String[][] clothes = { {"yellow_hat", "headgear"}, {"blue_sunglassed", "eyewear"}, 
-				{"green_turban", "headgear"} };
-//		String[][] clothes = { {"crow_mask", "face"}, {"blue_sunglassed", "face"}, {"smoke_makeup", "face"} };
-		HashMap<String, Integer> map = new HashMap<>();
-		int answer = clothes.length;
+        int answer = 1;
+        HashMap<String, Integer> map = new HashMap<>();
 		for(int i=0; i<clothes.length; i++) {
 			if(!map.containsKey(clothes[i][1])) {
 				map.put(clothes[i][1], 1);
@@ -68,6 +59,19 @@ public class Camouflage {
 			}
 		}
 		Iterator<String> iterator = map.keySet().iterator();
+		while(iterator.hasNext()) {
+			answer *= map.get(iterator.next())+1;
+		}
+        return answer-1;
+    }
+}
+public class Camouflage {
+	public static void main(String[] args) {
+		String[][] clothes = { {"yellow_hat", "headgear"}, {"blue_sunglassed", "eyewear"}, 
+				{"green_turban", "headgear"} };
+//		String[][] clothes = { {"crow_mask", "face"}, {"blue_sunglassed", "face"}, {"smoke_makeup", "face"} };
+		SolutionCamouflage su = new SolutionCamouflage();
+		System.out.println(su.solution(clothes));
 	}
 }
 
