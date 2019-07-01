@@ -1,4 +1,7 @@
 package bruteforce;
+
+import java.util.Arrays;
+
 /*
  수포자는 수학을 포기한 사람의 준말입니다. 수포자 삼인방은 모의고사에 수학 문제를 전부 찍으려 합니다. 수포자는 1번 문제부터 마지막 문제까지 다음과 같이 찍습니다.
 
@@ -17,19 +20,42 @@ answers		return
 [1,2,3,4,5]	[1]
 [1,3,2,4,2]	[1,2,3] */
 public class MockTest {	
-	static int[] answer = {1,2,3,4,5};
 	public static void main(String[] args) {
 		SolutionMockTest su = new SolutionMockTest();
-		int[] firstPerson = new int[answer.length*2];
-		int[] secondPerson = new int[answer.length*2];
-		int[] thirdPerson = new int[answer.length*2];
-		
+//		int[] answer = {1,2,3,4,5};		// [1]
+		int[] answer = {1,3,2,4,2};	// [1, 2, 3]
+		for(int data : su.solution(answer))
+			System.out.println(data);
 	}
 }
 class SolutionMockTest {
     public int[] solution(int[] answers) {
-        int[] answer = {1,2,3,4,5};
-//        int[] answer = {1,3,2,4,2};
+    	int[] first = {1, 2, 3, 4, 5};
+    	int[] second = {2, 1, 2, 3, 2};	//, 4, 2, 5};
+    	int[] third = {3, 3, 1, 1, 2};	//, 2, 4, 4, 5, 5};
+    	int[] cnt = new int[3];
+    	for(int i=0; i<answers.length; i++) {
+    		if(answers[i] == first[i])
+    			cnt[0]++;
+    		if(answers[i] == second[i])
+    			cnt[1]++;
+    		if(answers[i] == third[i])
+    			cnt[2]++;
+    	}
+    	Arrays.sort(cnt);
+    	int[] answer = {cnt[2]};
+    	int max = answer[0];
+    	if(max == cnt[0]) {
+    		answer = new int[3];
+    		answer[0] = cnt[2];
+    		answer[1] = cnt[1];
+    		answer[2] = cnt[0];
+    	}
+    	if(max == cnt[1]) {
+    		answer = new int[2];
+    		answer[0] = cnt[2];
+    		answer[1] = cnt[1];
+    	}
         return answer;
     }
 }
