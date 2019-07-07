@@ -3,11 +3,8 @@ package hash;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 
 public class BestAlbum {
 	public static void main(String[] args) {
