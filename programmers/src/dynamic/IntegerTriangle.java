@@ -26,7 +26,7 @@ class SolutionIntegerTriangle {
 //        dp(triangle, 0, 0, triangle[0][0]);											// 합의 시작은 7부터다
     	int answer=0;
     	for(int i=1; i<triangle.length; i++) {
-    		for(int j=0; j<i; j++) {
+    		for(int j=0; j<=i; j++) {
     			if(j==0) {
     				triangle[i][j] += triangle[i-1][j];									// 왼쪽 가장자리 기준 
     			} else if(i==j) {
