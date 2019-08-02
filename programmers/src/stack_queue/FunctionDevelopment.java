@@ -1,5 +1,9 @@
 package stack_queue;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
 /* 프로그래머스 팀에서는 기능 개선 작업을 수행 중입니다. 각 기능은 진도가 100%일 때 서비스에 반영할 수 있습니다.
 
 또, 각 기능의 개발속도는 모두 다르기 때문에 뒤에 있는 기능이 앞에 있는 기능보다 먼저 개발될 수 있고, 
@@ -36,11 +40,65 @@ public class FunctionDevelopment {
 
 class SolutionFunctionDevelopment {
 	public int[] solution(int[] progresses, int[] speeds) {
-		int[] answer = {};
+		// 큐를 이용
+		Queue<Integer> qu = new LinkedList<>();
+		for(int i=0; i<progresses.length; i++) {
+			int count = 0;
+			while(progresses[i] < 100) {
+				progresses[i] += speeds[i];
+				count++;
+			}
+			qu.add(count);
+		}
+		ArrayList<Integer> result = new ArrayList<>();
+		int dayFirst = qu.poll();
+		int count = 1;
+		while(!qu.isEmpty()) {
+			int daySecond = qu.poll();
+			if(dayFirst >= daySecond) {
+				count++;
+			} else {
+				result.add(count);
+				count = 1;
+				dayFirst = daySecond;
+			}
+		}
+		result.add(count);
 		
-		
+		int[] answer = new int[result.size()];
+		for(int i=0; i<answer.length; i++) {
+			answer[i] = result.get(i);
+		}
 		return answer;
-		// 에러 비내림
+		/* 큐를 사용시 남은 개발일정 추출하는 다른 방법
+		 * List<Integer> answerList = new ArrayList<>();
+
+        for (int i = 0; i < speeds.length; i++) {
+            double remain = (100 - progresses[i]) / (double) speeds[i];
+            int date = (int) Math.ceil(remain);
+
+            if (!q.isEmpty() && q.peek() < date) {
+                answerList.add(q.size());
+                q.clear();
+            }
+
+            q.offer(date);
+        }
+		 */
+		
+		/* 간결한 풀이1
+		 * int[] dayOfend = new int[100];
+        int day = -1;
+        for(int i=0; i<progresses.length; i++) {
+            while(progresses[i] + (day*speeds[i]) < 100) {
+                day++;
+            }
+            dayOfend[day]++;
+        }
+        return Arrays.stream(dayOfend).filter(i -> i!=0).toArray();
+		 */
+		
+		// 에러 비내림 (배열을 이용하여)
 //		ArrayList<Integer> arr = new ArrayList<>();
 //		for (int i = 0; i < progresses.length; i++) {
 //			int count=0;
@@ -71,3 +129,100 @@ class SolutionFunctionDevelopment {
 //		}
 	}
 }
+
+/* 배열과 메소드를 이용한 방법 참고하기
+class Solution {
+
+    int progressesCount;
+    int[] needDays; 
+
+    ArrayList<Integer> workCountStorage;
+
+    public int[] solution(int[] progresses, int[] speeds) {
+
+        //Init
+        progressesCount = progresses.length;
+        needDays = new int[progressesCount];
+        workCountStorage = new ArrayList<>();
+
+
+        //필요한 작업일 계산
+        this.calcNeedDays(progresses, speeds);
+
+        //this.viewAll(needDays, 0);
+
+
+        //동시에 진행된 프로세스 계산
+        for(int step=0; step<progressesCount;)
+        {
+            int stepNeedDay = needDays[step];
+
+            //날짜 동시에 경과
+            for(int remainStep=step; remainStep<progressesCount; remainStep++)
+            {
+                needDays[remainStep] -= stepNeedDay;
+            }
+
+            //this.viewAll(needDays, step);
+
+            //완료한 작업까지의 갯수
+            int workCount = 1;
+            for(;step+workCount<progressesCount; workCount++)
+            {
+                if(needDays[step+workCount] > 0)
+                {
+                    break;
+                }
+            }
+
+            System.out.println("workCount:"+workCount);
+
+            //완료한 작업 갯수 저장
+            workCountStorage.add(workCount);
+
+            //작업 갯수만큼 step 증가
+            step += workCount;    
+
+        }
+
+        //int[] answer = {};
+        int[] answer = Solution.convertIntegers(workCountStorage);
+        return answer;
+    }
+
+    private void calcNeedDays(int[] progresses, int[] speeds)
+    {
+        for(int i=0; i<progressesCount; i++)
+        {
+            double remainProgress = 100 - progresses[i];
+            double fNeedDay = remainProgress / speeds[i];
+
+            needDays[i] = (int)Math.ceil(fNeedDay);
+        }
+    }
+
+    public static int[] convertIntegers(ArrayList<Integer> integers)
+    {
+        int size = integers.size();
+        int[] ret = new int[size];
+        for (int i=0; i<size; i++)
+        {
+            ret[i] = integers.get(i).intValue();
+        }
+        return ret;
+    }
+
+    private void viewAll(int[] array, int startIdx)
+    {
+        System.out.print("viewAll:");
+
+        int arrayCount = array.length;
+        for(int i=startIdx; i<arrayCount; i++)
+        {
+            System.out.print(array[i]+",");
+        }
+
+        System.out.println();
+    }
+}
+*/
