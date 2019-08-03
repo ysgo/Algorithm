@@ -32,27 +32,44 @@ class SolutionBestFarNode {
     public int solution(int n, int[][] edge) {
     	int answer = 0;
     	boolean[] visited = new boolean[n+1];
-    	Queue<Integer> qu = new LinkedList<Integer>();
-    	qu.add(1);
+    	Node[] node = new Node[n+1];
+    	for(int i=0; i<n+1; i++) {
+    		node[i] = new Node(i);
+    	}
+    	for(int i=0; i<node.length; i++ ) {
+    		node[edge[i][0]].add(edge[i][1]);
+    		node[edge[i][1]].add(edge[i][0]);
+    	}
+    	for(Node data : node)
+    		data.print();
+    	Queue<Node> qu = new LinkedList<Node>();   	
+    	qu.add(node[1]);
     	visited[1] = true;
     	while(!qu.isEmpty()) {
-    		answer = qu.size();
-    		for(int j=0; j<answer; j++) {
-    			int tmp = qu.poll();
-    			for(int i=0; i<edge.length; i++) {
-    				if(edge[i][0] == tmp && !visited[edge[i][1]]) {
-    					qu.add(edge[i][1]);
-    					visited[edge[i][1]] = true;
-    				} else if(edge[i][1] == tmp && !visited[edge[i][0]]) {
-    					qu.add(edge[i][0]);
-    					visited[edge[i][0]] = true;
-    				}
-    			}    			
-    		}
+    		
     	}
     	return answer;
     }
 }
+class Node {
+	int node;
+	LinkedList<Integer> nodes;
+	
+	Node(int node) {
+		this.node = node;
+		nodes = new LinkedList<>();
+	}
+	public void add(int data) {
+		nodes.add(data);
+	}
+	public void print() {
+		System.out.println(nodes);
+	}
+}
+
+
+
+
 /* 통과했지만 시간이 5000ms대가 나와서 다시 구현
  boolean[] visited = new boolean[n+1];
     	Queue<Integer> qu = new LinkedList<Integer>();
