@@ -4,8 +4,6 @@
 
 ### Exclude Folder ###
 algorithm_solution/
-javaexam/
-jdbcexam/
 Servers/
 
 ### Eclipse ###
