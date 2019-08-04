@@ -1,4 +1,4 @@
-package basic;
+package practice_problem;
 
 public class CenterStringGet {
 	public static void main(String[] args) {
@@ -15,13 +15,13 @@ public class CenterStringGet {
 			answer = s.charAt(len-1) + "" + s.charAt(len);
 		}
 		System.out.println(answer);
-		System.out.println();
-		System.out.println(new StringExercise().getMiddle(s));
+//		System.out.println();
+//		System.out.println(new StringExercise().getMiddle(s));
 	}
 }
 // 한줄 완성 코드
-class StringExercise{
-	String getMiddle(String word) {
-		return word.substring((word.length()-1)/2, word.length()/2+1);
-	}
-}
+//class StringExercise{
+//	String getMiddle(String word) {
+//		return word.substring((word.length()-1)/2, word.length()/2+1);
+//	}
+//}

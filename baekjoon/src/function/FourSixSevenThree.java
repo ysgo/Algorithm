@@ -1,4 +1,5 @@
-// 함수 문제
+package function;
+
 public class FourSixSevenThree {
 	static int dn(int i) {
 		int n = i;

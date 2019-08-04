@@ -1,5 +1,6 @@
+package array;
+
 import java.util.Scanner;
-// 1차원 배열 문제
 public class FourThreeFourFour {
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
