@@ -1,4 +1,4 @@
-package hard;
+package hard.repeat;
 
 public class Problem168 {
 	public static void main(String[] args) {

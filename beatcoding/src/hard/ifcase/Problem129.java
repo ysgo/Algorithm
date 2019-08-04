@@ -1,4 +1,4 @@
-package hard;
+package hard.ifcase;
 
 import java.util.Scanner;
 
@@ -18,5 +18,6 @@ public class Problem129 {
 		System.out.println(result);
 		System.out.println();
 		System.out.printf("%d", a*=3);
+		sc.close();
 	}
 }

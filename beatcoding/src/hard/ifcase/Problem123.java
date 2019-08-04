@@ -1,4 +1,4 @@
-package hard;
+package hard.ifcase;
 
 public class Problem123 {
 	public static void main(String[] args) {

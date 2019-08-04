@@ -1,4 +1,4 @@
-package hard;
+package hard.repeat;
 
 import java.util.Scanner;
 
