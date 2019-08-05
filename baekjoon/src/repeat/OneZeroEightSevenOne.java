@@ -1,4 +1,4 @@
-package useIf;
+package repeat;
 
 import java.util.Scanner;
 

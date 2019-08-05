@@ -1,4 +1,4 @@
-package repeat_while;
+package repeat;
 
 import java.util.Scanner;
 
