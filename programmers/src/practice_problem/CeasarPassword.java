@@ -13,7 +13,7 @@ s		n		result
 AB		1		BC
 z		1		a
 a B z	4		e F d */
-public class CaesarPassword {
+public class CeasarPassword {
 	public static void main(String[] args) {
 		SolutionCaesarPassword su = new SolutionCaesarPassword();
 //		String s = "AB";	// BC
