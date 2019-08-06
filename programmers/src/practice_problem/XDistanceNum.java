@@ -16,18 +16,21 @@ public class XDistanceNum {
 	public static void main(String[] args) {
 		SolutionXDistanceNum su = new SolutionXDistanceNum();
 		int x = 2;
-		int n = 5;
+		int n = 5;	// 2,4,6,8,10
+//		int x = 4;
+//		int n = 3;	// 4, 8, 12
+//		int x = -4;
+//		int n = 2;	// -4, -8
 		for(long data : su.solution(x, n))
 			System.out.print(data + " ");
 	}
 }
 class SolutionXDistanceNum {
-	  public long[] solution(long x, int n) {
+	  public long[] solution(int x, int n) {
 	      long[] answer = new long[n];
 	         for(int i=0; i<answer.length; i++) {
-	              answer[i] = x *(i + 1);
+	              answer[i] = (Long.valueOf(x) *(i + 1));
 	          } 
-
 	      return answer;
 	  }
 	}
