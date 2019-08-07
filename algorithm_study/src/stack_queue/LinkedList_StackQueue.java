@@ -109,6 +109,34 @@ class LinkedList {
 		}
 		return check;
 	}
+//  해결하지 못한 부분 참고 파트
+//	protected Boolean removeFirst() {
+//		if(first!=null) {
+//			if(first!=last) {
+//				first = first.next;
+//			}else {
+//				first=last=null;
+//			}
+//			return true;
+//		}
+//		return false;
+//	}
+//
+//	protected Boolean removeLast() {
+//		if(last!=null) {
+//			if(first!=last) {
+//				LinkedNode cur = first;
+//				while(cur.next != last) {
+//					cur = cur.next;
+//				}
+//				last = cur;
+//			}else {
+//				first=last=null;
+//			}
+//			return true;
+//		}
+//		return false;
+//	}
 
 	protected void printList() {
 		LinkedNode current = first;
