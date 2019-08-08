@@ -20,23 +20,30 @@ public class CreateMaxNum {
 	public static void main(String[] args) {
 		SolutionCreateMaxNum su = new SolutionCreateMaxNum();
 //		String number = "1924";
-//		int k = 2;
-		String number = "1231234";
-		int k = 3;
-//		String number = "4177252841";
-//		int k = 4;
+//		int k = 2;		// 94
+//		String number = "1231234";
+//		int k = 3;		// 3234
+		String number = "4177252841";
+		int k = 4;		// 775841
 		System.out.println(su.solution(number, k));
 	}
 }
 class SolutionCreateMaxNum {
     public String solution(String number, int k) {
-    	String answer="";
-    	for(int i=0; i<number.length()-k; i++) {
-    		for(int j=i; j<k+1; j++) {
-    			
+    	StringBuilder sb = new StringBuilder(number);
+    	StringBuilder answer = new StringBuilder();
+    	int max;	// 가장 큰 수를 만들기 위한 변수
+    	int n = 0;	// 가장 큰 수를 선택했을 때 그 다음부터 시작하기 위한 인덱스 변수
+    	for(int i=0; i<sb.length()-k; i++) {	// 결과길이 = 문자길이 - 제거문자개수
+    		max = 0;
+    		for(int j=n; j<k+i+1; j++) {
+    			if(max < sb.charAt(j)-'0') {
+    				max = sb.charAt(j) - '0';	
+    				n = j + 1;		// 현재 인덱스 다음부터 시작
+    			}
     		}
+    		answer.append(max);	// 숫자 하나씩 더하기
     	}
-    	
-    	return answer;
+    	return answer.toString();
     }
 }
