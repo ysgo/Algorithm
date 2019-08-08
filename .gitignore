@@ -5,6 +5,7 @@
 ### Exclude Folder ###
 algorithm_solution/
 Servers/
+abc/
 
 ### Eclipse ###
 .metadata
