@@ -18,15 +18,10 @@ public class Problem215 {
 		for(int i=0; i<3; i++)
 			b[i] = stdIn.nextInt();
 		
+		for(int i=0; i<3; i++)
+			result[i] = a[(i+1)%3]*b[(i+2)%3] - a[(i+2)%3]*b[(i+1)%3];
 		
-		System.out.println("두 벡터의 외적은 " + getExternal(a, b) + "입니다.");
+		System.out.println("두 벡터의 외적은 (" + result[0] + ", " + result[1] + ", " + result[2]  + ")입니다.");
 		stdIn.close();
-	}
-	static int getExternal(int[] a, int[] b) {
-		int mul = 0;
-		for(int i=0; i<a.length; i++) {
-			
-		}
-		return mul;
 	}
 }
