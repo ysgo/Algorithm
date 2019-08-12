@@ -1,4 +1,4 @@
-package practice_problem;
+package level1;
 
 public class WeakNumOfSum {
 	public static void main(String[] args) {

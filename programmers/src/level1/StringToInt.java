@@ -1,4 +1,4 @@
-package practice_problem;
+package level1;
 
 
 // 이 클래스는 학습테스트 전

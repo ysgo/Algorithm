@@ -4,29 +4,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-/* 무인도에 갇힌 사람들을 구명보트를 이용하여 구출하려고 합니다. 구명보트는 작아서 한 번에 최대 2명씩 밖에 탈 수 없고, 무게 제한도 있습니다.
-
-예를 들어, 사람들의 몸무게가 [70kg, 50kg, 80kg, 50kg]이고 구명보트의 무게 제한이 100kg이라면 2번째 사람과 4번째 사람은 같이 탈 수 있지만
- 1번째 사람과 3번째 사람의 무게의 합은 150kg이므로 구명보트의 무게 제한을 초과하여 같이 탈 수 없습니다.
-
-구명보트를 최대한 적게 사용하여 모든 사람을 구출하려고 합니다.
-
-사람들의 몸무게를 담은 배열 people과 구명보트의 무게 제한 limit가 매개변수로 주어질 때, 
-모든 사람을 구출하기 위해 필요한 구명보트 개수의 최솟값을 return 하도록 solution 함수를 작성해주세요.
-
-제한사항
-무인도에 갇힌 사람은 1명 이상 50,000명 이하입니다.
-각 사람의 몸무게는 40kg 이상 240kg 이하입니다.
-구명보트의 무게 제한은 40kg 이상 240kg 이하입니다.
-구명보트의 무게 제한은 항상 사람들의 몸무게 중 최댓값보다 크게 주어지므로 사람들을 구출할 수 없는 경우는 없습니다.
-입출력 예
-people				limit	return
-[70, 50, 80, 50]	100		3
-[70, 80, 50]		100		3 */
 public class LifeBoat {
 	public static void main(String[] args) {
 		SolutionLifeBoat su = new SolutionLifeBoat();
-		int[] people = { 70, 50, 80, 50 };
+		int[] people = { 70, 50, 80, 50 };	// 3
+//		int[] people = { 70, 50, 80, 50, 40, 120, 90, 50 };	// 6
+//		int[] people = { 70, 80, 50 };
 		int limit = 100;
 		System.out.println(su.solution(people, limit));
 	}
@@ -35,30 +18,44 @@ public class LifeBoat {
 class SolutionLifeBoat {
 	public int solution(int[] people, int limit) {
 		ArrayList<Integer> list = new ArrayList<>();
-		for (int data : people)
-			list.add(data);
+		for (int i = 0; i < people.length; i++) {
+			list.add(people[i]);
+		}
 		Collections.sort(list, new Comparator<Integer>() {
 			@Override
 			public int compare(Integer o1, Integer o2) {
-				if (o1 > o2)
-					return -1;
-				else if (o1 < o2)
-					return 1;
-				else
-					return 0;
+				return (o1 > o2) ? -1 : (o1 < o2) ? 1 : 0;
 			}
 		});
-		int answer = 0;
-		int n=0;
-		for (int i = 0; i < list.size(); i++) {
-			if ((list.get(i) + list.get(list.size()-1-n)) <= limit) {
-				answer++;
-				n++;
+		System.out.println(list);
+		
+		int answer = people.length;
+		System.out.println(answer);
+		int j = list.size()-1;
+		System.out.println(j);
+		for(int i=0; i<j; i++) {
+			System.out.println(i + "  " + j);
+			if(list.get(i) + list.get(j)<= limit) {
+				System.out.println(i + "  " + j);
+				answer--;
+				j--;
 			}
-			if(n > i)
-				break;
 		}
-		answer = list.size() - answer;
 		return answer;
+//		스택으로 해봤지만 실패한 코드		
+//		int result = people.length;
+//		Stack<Integer> stack = new Stack<>();
+//		stack.addAll(list);
+//		while(!stack.isEmpty()) {
+//			int pop = stack.pop();
+//			for(int i=stack.size()-1; i>=0; i--) {
+//				if(pop + stack.get(i) <= limit) {
+//					result--;
+//					stack.pop();
+//					break;
+//				}
+//			}
+//		}
+//		return result;		
 	}
 }

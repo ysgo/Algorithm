@@ -1,4 +1,4 @@
-package practice_problem;
+package level1;
 
 import java.util.Arrays;
 
