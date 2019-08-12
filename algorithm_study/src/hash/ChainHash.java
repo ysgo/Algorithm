@@ -4,6 +4,7 @@ package hash;
 // 체인법에 의한 해시
 public class ChainHash<K, V> {
 	// 해시를 구성하는 노드
+	@SuppressWarnings("hiding")
 	class Node<K, V> {
 		private K key;				// 키 값
 		private V data;				// 데이터
@@ -37,6 +38,7 @@ public class ChainHash<K, V> {
 	private int size;			// 해시 테이블의 크기
 	private Node<K, V>[] table;	// 해시 테이블
 	// 생성자
+	@SuppressWarnings("unchecked")
 	public ChainHash(int capacity) {
 		try {
 			table = new Node[capacity];

@@ -83,6 +83,7 @@ public class ChainHashTester {
 	}
 	
 	// Main Test 실행 메소드
+	@SuppressWarnings("incomplete-switch")
 	public static void main(String[] args) {
 		Menu menu;					// 메뉴
 		Data data;					// 추가용 데이터 참조

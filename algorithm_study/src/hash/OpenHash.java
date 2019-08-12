@@ -49,6 +49,7 @@ public class OpenHash<K, V> {
 	private Bucket<K,V>[] table;	// 해시 테이블
 	
 	// 생성자
+	@SuppressWarnings("unchecked")
 	public OpenHash(int size) {
 		try {
 			table = new Bucket[size];

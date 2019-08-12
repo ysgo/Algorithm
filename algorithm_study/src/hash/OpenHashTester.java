@@ -81,6 +81,7 @@ public class OpenHashTester {
 		return Menu.MenuAt(key);
 	}
 	
+	@SuppressWarnings("incomplete-switch")
 	public static void main(String[] args) {
 		Menu menu;				// 메뉴
 		Data data;				// 추가용 데이터 참조
