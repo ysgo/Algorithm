@@ -24,34 +24,26 @@ class SolutionDiskController {
 			}
 		});
 		PriorityQueue<Work> qu = new PriorityQueue<>();
-		for (int i = 0; i < jobs.length; i++) {
-			qu.add(new Work(jobs[i][0], jobs[i][1]));
-		}
 		int len = jobs.length;
 		int curTime = 0;
-		Work tmp;
-		while (!qu.isEmpty()) {
-			tmp = qu.poll();
-			curTime += tmp.workTime;
-			answer += curTime - tmp.start;
-		}
-//		while(true) {
-//            while(idx < len && jobs[idx][0] <= current) {
-//                pq.add(new Job(jobs[idx][0], jobs[idx][1]));
-//                idx++;
-//            }
-//            if(pq.isEmpty()) {
-//                if(idx == len){
-//                    break;
-//                }else {
-//                    current++;
-//                }
-//            }else {
-//                Job j = pq.poll();
-//                current += j.time;
-//                total += current - j.start;
-//            }
-//        }
+		int idx = 0;
+		while(true) {
+            while(idx < len && jobs[idx][0] <= curTime) {
+                qu.add(new Work(jobs[idx][0], jobs[idx][1]));
+                idx++;
+            }
+            if(qu.isEmpty()) {
+                if(idx == len){
+                    break;
+                }else {
+                	curTime++;
+                }
+            }else {
+                Work tmp = qu.poll();
+                curTime += tmp.workTime;
+                answer += curTime - tmp.start;
+            }
+        }
 		return answer / len;
 	}
 }
@@ -68,21 +60,6 @@ class Work implements Comparable<Work> {
 	public int compareTo(Work o) {
 		return this.workTime - o.workTime;
 	}
-
-//	@Override
-//	public int compareTo(Work o) {
-//		if(this.workTime > o.workTime) {
-//			return 1;
-//		} else if(this.workTime < o.workTime) {
-//			return -1;
-//		} else {
-//			if(this.start > o.start) {
-//				return 1;
-//			} else {
-//				return -1;
-//			}
-//		}
-//	}
 
 	@Override
 	public String toString() {
