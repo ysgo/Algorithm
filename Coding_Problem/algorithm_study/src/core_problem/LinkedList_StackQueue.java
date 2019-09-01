@@ -1,4 +1,4 @@
-package stack_queue;
+package core_problem;
 // LinkdedList의 개념과 부합되는 중간삽입과 삭제시 반복문을 통한 현재위치까지의 노드를 찾는 소스구현이 필요 
 
 /*

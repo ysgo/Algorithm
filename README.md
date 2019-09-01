@@ -4,7 +4,7 @@
 
 - [Alogorithm](#Algorithm)
 - [DataStructure](#DataStructure)
-- [Coding Problem](#Coding Problem)
+- [Coding_Problem](#Coding Problem)
 
 ---
 

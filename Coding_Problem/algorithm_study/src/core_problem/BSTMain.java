@@ -1,4 +1,4 @@
-package tree;
+package core_problem;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
