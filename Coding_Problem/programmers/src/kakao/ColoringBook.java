@@ -13,18 +13,17 @@ public class ColoringBook {
 }
 
 class SolutionColoringBook {
-	static int[][] color;
 	static boolean[][] chkColor;
 	public int[] solution(int m, int n, int[][] picture) {
 		int numberOfArea = 0;
 		int maxSizeOfOneArea = 0;
-		color = picture;
+		chkColor = new boolean[m][n];
 		
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
 				// 그림 그려진 경우에 영역의 칸수 증가
-				if (color[i][j] != 0) {
-					int tmp = check(picture[i][j], i, j, m, n);
+				if (picture[i][j] > 0 && !chkColor[i][j]) {
+					int tmp = check(picture, picture[i][j], i, j, m, n);
 					maxSizeOfOneArea = Math.max(tmp, maxSizeOfOneArea);
 					numberOfArea++;
 				}
@@ -37,18 +36,18 @@ class SolutionColoringBook {
 		return answer;
 	}
 
-	public static int check(int val, int i, int j, int m, int n) {
+	public static int check(int[][] picture, int val, int i, int j, int m, int n) {
 		// 상하좌우 체크하기
-		if (i >= m || j >= n || i < 0 || j < 0 || val != color[i][j]) {
+		if (i < 0 || i >= m || j < 0 || j >= n || chkColor[i][j] || val != picture[i][j]) {
 			return 0;
 		}
-		color[i][j] = 0;
+		chkColor[i][j] = true;
 		int count = 1;
 		
-		count += check(val, i-1, j, m, n);	// 위쪽
-		count += check(val, i, j-1, m, n);	// 왼쪽
-		count += check(val, i+1, j, m, n);	// 아래쪽
-		count += check(val, i, j+1, m, n);	// 오른쪽
+		count += check(picture, val, i-1, j, m, n);	// 위쪽
+		count += check(picture, val, i+1, j, m, n);	// 아래쪽
+		count += check(picture, val, i, j-1, m, n);	// 왼쪽
+		count += check(picture, val, i, j+1, m, n);	// 오른쪽
 		
 		return count;
 	}
