@@ -47,6 +47,7 @@
 - **카카오코드예선** [link](https://programmers.co.kr/learn/courses/30)
   - 2017
     - 컬러링북 [code](./programmers/src/kakao/ColoringBook.java)
+    - 4단 고음 [code](./programmers/src/kakao/FourthHighTone.java)
 
 ### 2. [백준](./baekjoon/src/)
 
@@ -106,6 +107,15 @@
   - 1차원 배열 [link](./beatcoding/src/hard/dimentionone)
   - 2차원 배열 [link](./beatcoding/src/hard/dimentiontwo)
   - 재귀함수 [link](./beatcoding/src/hard/recursive)
+  - Variable [link](./beatcoding/src/hard/variable)
+  - 기본 클래스 라이브러리
+    - Calendar [link](./beatcoding/src/hard/calendar)
+    - SimpleDateFormat [link](./beatcoding/src/hard/simpledateformat)
+    - String [link](./beatcoding/src/hard/string)
+    - StringBuffer [link](./beatcoding/src/hard/stringbuffer)
+    - ArrayList [link](./beatcoding/src/hard/arraylist)
+- advanced
+  - class [link](./beatcoding/src/advanced/classobject)
 
 ### 5. [자바 200제](./practice200/src/)
 
