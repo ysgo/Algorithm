@@ -1,6 +1,6 @@
 # [ 알고리즘 문제풀이 ]
 
-### 1. [프로그래머스](./Coding_Problem/programmers/src/)
+### 1. [프로그래머스](./programmers/src/)
 
 - **해시** [link](https://programmers.co.kr/learn/courses/30/parts/12077)
   - 완주하지 못한 선수 [code](./programmers/src/hash/FailRunner.java) 
@@ -48,7 +48,7 @@
   - 2017
     - 컬러링북 [code](./programmers/src/kakao/ColoringBook.java)
 
-### 2. [백준](./Coding_Problem/baekjoon/src/)
+### 2. [백준](./baekjoon/src/)
 
 #### 분류별 학습
 
@@ -76,7 +76,7 @@
 - 동적계획법
   - 1463 - 1로 만들기 [link](<https://www.acmicpc.net/problem/1463>) [code1](./baejoon/src/dynamic/OneFourSixThree_1.java) [code2](./baejoon/src/dynamic/OneFourSixThree_2.java)
 
-### 3. [알고리즘 스터디](./Coding_Problem/algorithm_study/src/)
+### 3. [알고리즘 스터디](./algorithm_study/src/)
 
 - 그래프 [link](./algorithm_study/src/graph)
 - 탐욕법 [link](./algorithm_study/src/greedy)
@@ -95,7 +95,7 @@
   - 스택_큐 구현 [code](./algorithm_study/src/LinkedList_StackQueue.java)
   - 2진 트리[code](./algorithm_study/src/BSTMain.java)
 
-### 4. [비트코딩](./Coding_Problem/beatcoding/src/)
+### 4. [비트코딩](./beatcoding/src/)
 
 - basic [link](./beatcoding/src/basic)
 - hard [link](./beatcoding/src/hard)
@@ -107,7 +107,7 @@
   - 2차원 배열 [link](./beatcoding/src/hard/dimentiontwo)
   - 재귀함수 [link](./beatcoding/src/hard/recursive)
 
-### 5. [자바 200제](./Coding_Problem/practice200/src/)
+### 5. [자바 200제](./practice200/src/)
 
 - Beginner [link](./practice200/src/Beginner)
 - Intermediate  [link](./practice200/src/Conjugation)
