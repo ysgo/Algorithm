@@ -24,7 +24,7 @@
 
 ### 3. [알고리즘 스터디](./Coding_Problem/algorithm_study/src/)
 
-### 4. [비트코딩](./Coding_Problem/beatcoding/src/)
+### 4. [비트코딩](./Coding_Problem/bitcoding/src/)
 
 ### 5. [자바 200제](./Coding_Problem/practice200/src/)
 
