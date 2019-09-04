@@ -13,6 +13,7 @@
   - 쇠막대기 [code](./programmers/src/stack_queue/IronStick.java)
   - 주식가격 [code](./programmers/src/stack_queue/StockPrice.java)
   - 기능개발 [code](./programmers/src/stack_queue/FunctionDevelopment.java)
+  - 다리를 지나는 트럭 [code](./programmers/src/stack_queue/CrossBridgeTruck.java)
 - **힙** [link](https://programmers.co.kr/learn/courses/30/parts/12117)
   - 더 맵게 [code](./programmers/src/heap/MoreSpicy.java)
   - 라면 공장 [code](./programmers/src/heap/RamenFactory.java)
