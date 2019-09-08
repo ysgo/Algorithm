@@ -10,6 +10,8 @@ import java.util.Map;
 public class FailureRate {
 	public static void main(String[] args) {
 		SolutionFailureRate su = new SolutionFailureRate();
+//		int N = 6;
+//		int[] stages = {1, 1, 4, 3, 3, 5, 3, 5};	// {3, 4, 2, 1, 5}
 		int N = 5;
 		int[] stages = {2, 1, 2, 6, 2, 4, 3, 3};	// {3, 4, 2, 1, 5}
 //		int N = 4;	
@@ -23,40 +25,35 @@ public class FailureRate {
 class SolutionFailureRate {
     public int[] solution(int N, int[] stages) {
         int stageNum = 1;
-        double unClear = 0;
-        double stageReach = stages.length;
-        double failRate;
-        Map<Integer, Double> map = new HashMap<>();
+        int stageReach = stages.length;
+        Map<Integer, Integer> usrNum = new HashMap<>();
+        Map<Integer, Double> fail = new HashMap<>();
+        for(Integer data : stages) {
+        	int count = usrNum.containsKey(data) ? usrNum.get(data) + 1 : 1;
+        	usrNum.put(data, count);
+        }
         while(stageNum<= N) {
-        	unClear = countFail(stageNum, stages);
-        	failRate = unClear / stageReach;
-        	map.put(stageNum, failRate);
-        	
-        	stageReach -= unClear;
+        	if(usrNum.containsKey(stageNum)) {
+        		fail.put(stageNum, (double)(usrNum.get(stageNum))/stageReach);
+        		stageReach -= usrNum.get(stageNum);
+        	} else {
+        		fail.put(stageNum, 0.0);
+        	}
         	stageNum++;
         }
-        List<Integer> keySetList = new ArrayList<>(map.keySet());
+        List<Integer> keySetList = new ArrayList<>(fail.keySet());
         Collections.sort(keySetList, new Comparator<Integer>() {
 			@Override
 			public int compare(Integer o1, Integer o2) {
-				return map.get(o2).compareTo(map.get(o1));
+				return fail.get(o2).compareTo(fail.get(o1));
 			}
         });
-        int[] answer = new int[map.size()];
+        
+        int[] answer = new int[fail.size()];
         int idx = 0;
         for(Integer key : keySetList) {
             answer[idx++] = key;
         }
         return answer;
-    }
-    
-    static int countFail(int stageNum, int[] stages) {
-    	int count = 0;
-    	for(int i=0; i<stages.length; i++) {
-    		if(stages[i] == stageNum) {
-    			count++;
-    		}
-    	}
-    	return count;
     }
 }
