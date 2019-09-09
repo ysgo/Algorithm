@@ -45,10 +45,16 @@
 - **그래프** [link](https://programmers.co.kr/learn/courses/30/parts/14393)
   - 가장 먼 노드 [code](./programmers/src/graph/BestFarNode.java)
   - 순위 [code](./programmers/src/graph/Ranking.java)
-- **카카오코드예선** [link](https://programmers.co.kr/learn/courses/30)
+- **카카오코드예선** [link](https://programmers.co.kr/learn/challenges)
   - 2017
     - 컬러링북 [code](./programmers/src/kakao/ColoringBook.java)
     - 4단 고음 [code](./programmers/src/kakao/FourthHighTone.java)
+  - 2018
+    - 오픈채팅방 [code](./programmers/src/kakao/OpenChatRoom.java)
+    - 실패율 [code](./programmers/src/kakao/FailureRate.java)
+  - 2019
+    - Problem1 [code](./programmers/src/codingtest/Problem1.java)
+    - Problem2 [code](./programmers/src/codingtest/Problem2.java)
 - level1
   - Skill Test [link](https://programmers.co.kr/skill_checks)
     - Test1 [code](./programmers/src/skill1/Test1.java)
@@ -132,6 +138,7 @@
   - 2750 - 수 정렬하기 [link](<https://www.acmicpc.net/problem/2750>) [code](./baejoon/src/sort/TwoSevenFiveZero.java)
 - dfs_bfs
   - 1260 - DFS와 BFS [link](<https://www.acmicpc.net/problem/1260>) [code1](./baejoon/src/dfs_bfs/OneTwoSixZero.java) [code2](./baejoon/src/dfs_bfs/OneTwoSixZero_NearList.java)
+  - 10026 - 적록색약 [link](<https://www.acmicpc.net/problem/1260>) [code](./baejoon/src/dfs_bfs/OneZeroZeroTwoSix.java)
 - 동적계획법
   - 1463 - 1로 만들기 [link](<https://www.acmicpc.net/problem/1463>) [code1](./baejoon/src/dynamic/OneFourSixThree_1.java) [code2](./baejoon/src/dynamic/OneFourSixThree_2.java)
 
