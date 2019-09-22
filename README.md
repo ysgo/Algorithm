@@ -2,7 +2,7 @@
 
 ## Index
 
-- [Alogorithm](#Algorithm)
+- [Algorithm](#Algorithm)
 - [DataStructure](#DataStructure)
 - [Coding_Problem](#Coding_Problem)
 
