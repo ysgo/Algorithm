@@ -4,6 +4,8 @@
 ### Exclude Folder ###
 .vscode/
 *.exe
+.ubuntu_venv/
+.window_venv/
 
 ### Eclipse ###
 .metadata
