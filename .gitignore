@@ -1,11 +1,12 @@
 # Created by https://www.gitignore.io/api/venv,java,pydev,python,eclipse,virtualenv,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=venv,java,pydev,python,eclipse,virtualenv,visualstudiocode
 
-### Exclude Folder ###
+### Exclude File & Folder ###
 .vscode/
 *.exe
 .ubuntu_venv/
 .window_venv/
+.DS_Store
 
 ### Eclipse ###
 .metadata
